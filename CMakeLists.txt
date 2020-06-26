@@ -133,6 +133,12 @@ elseif(AWS_ARCH_INTEL AND AWS_HAVE_GCC_INLINE_ASM)
         )
 endif()
 
+if (AWS_ARCH_ARM64 OR AWS_ARCH_ARM32)
+    file(GLOB AWS_COMMON_ARCH_SRC
+        "source/arch/arm/*.c"
+        )
+endif()
+
 list(APPEND PLATFORM_LIBS ${CMAKE_DL_LIBS})
 
 file(GLOB COMMON_HEADERS
